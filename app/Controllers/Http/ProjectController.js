@@ -35,9 +35,9 @@ class ProjectController {
     const project = await Project.findOrFail(params.id)
     const data = request.only(['title', 'description'])
 
-    project.merge(data)
+    await project.merge(data)
 
-    project.save()
+    await project.save()
 
     return project
   }
