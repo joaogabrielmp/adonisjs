@@ -28,6 +28,10 @@ class FileController {
         name: fileName
       })
 
+      if (!upload.moved()) {
+        return upload.error()
+      }
+
       const file = await File.create({
         file: fileName,
         name: upload.clientName,
